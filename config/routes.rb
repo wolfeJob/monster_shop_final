@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   #new address button route
   get 'users/:user_id/addresses/new', to: 'addresses#new'
+  post 'users/:user_id/addresses', to: 'addresses#create'
+
+
 
   get '/registration', to: 'users#new', as: :registration
   resources :users, only: [:create, :update]
