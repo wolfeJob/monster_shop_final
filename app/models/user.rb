@@ -11,5 +11,6 @@ class User < ApplicationRecord
 
 
   validates_uniqueness_of :email
+  accepts_nested_attributes_for :addresses
   enum role: ['default', 'merchant_admin', 'admin']
 end
