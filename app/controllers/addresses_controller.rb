@@ -23,6 +23,13 @@ def update
 redirect_to profile_path
 end
 
+def destroy
+@address = Address.find(params[:id])
+if @address.user_id == current_user.id
+@address.destroy
+redirect_to profile_path
+end
+end
 
 
 private
