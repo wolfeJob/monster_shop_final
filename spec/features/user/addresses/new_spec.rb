@@ -14,11 +14,13 @@ describe 'Creating a new address for a registered user' do
   visit profile_path
   click_on "Add Address"
 
+   type = "fun"
    street = "999 heaven way"
    city = "denver"
    state = "CO"
    zip = 90210
 
+   fill_in "Type", with: type
    fill_in "Street Address", with: street
    fill_in "City", with: city
    fill_in "State", with: state
@@ -31,6 +33,7 @@ describe 'Creating a new address for a registered user' do
    expect(current_path).to eq(profile_path)
 
  within "#address-#{new_address.id}" do
+   save_and_open_page
    expect(page).to have_content(street)
    expect(page).to have_content(city)
    expect(page).to have_content(state)
