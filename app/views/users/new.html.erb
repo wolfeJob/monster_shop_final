@@ -11,19 +11,20 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.fields_for :addresses do |fx| %>
-  <%= fx.label :street %>
-  <%= fx.text_field :street %>
+    <%= f.fields_for :address do |fx| %>
+    <%= fx.label :street %>
+    <%= fx.text_field :street %>
 
-  <%= fx.label :city%>
-  <%= fx.text_field :city %>
+    <%= fx.label :city%>
+    <%= fx.text_field :city %>
 
-  <%= fx.label :state%>
-  <%= fx.text_field :state %>
+    <%= fx.label :state%>
+    <%= fx.text_field :state %>
 
-  <%= fx.label :zip %>
-  <%= fx.text_field :zip %>
-  <% end  %>
+    <%= fx.label :zip %>
+    <%= fx.text_field :zip %>
+    <%  %>
+    <% end  %>
 
   <%= f.submit 'Register' %>
 <% end %>

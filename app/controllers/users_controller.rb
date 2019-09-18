@@ -8,10 +8,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @address = @user.addresses.new
   end
 
   def create
     @user = User.new(user_params)
+    # @address = @user.addresses.create(user_params[:address])
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome, #{@user.name}!"
@@ -44,6 +46,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, addresses_attributes: [:id, :nickname, :street, :city, :zip])
+    params.require(:user).permit(:name, :email, :password, :addresses_attributes => [:id, :nickname, :street, :city, :zip])
   end
 end
