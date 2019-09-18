@@ -8,4 +8,10 @@ validates_presence_of :street,
                       :state,
                       :zip,
                       :nickname
+
+
+def orders_that_are_shipped_status
+  self.orders.where(status: "shipped")
 end
+
+end 

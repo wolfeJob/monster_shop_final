@@ -33,5 +33,14 @@ expect(current_path).to eq(profile_path)
 end
 
   it "I cant delete an address that is apart of a shipped order" do
+    visit profile_path
+    within "#address-#{@scott_addy_2.id}" do
+      expect(page).to_not have_link("delete address")
+      expect(page).to_not have_link("edit address")
+    end
+    within "#address-#{@scott_addy.id}" do
+      expect(page).to have_link("delete address")
+      expect(page).to have_link("edit address")
+    end
   end
 end

@@ -10,8 +10,10 @@
   <p><%= address.city%></p>
   <p><%= address.state%></p>
   <p><%= address.zip%></p>
+  <% if address.orders_that_are_shipped_status.empty? %>
   <%= link_to 'edit address',"/users/#{@user.id}/addresses/#{address.id}/edit"  %>
   <%= link_to 'delete address',"/users/#{@user.id}/addresses/#{address.id}", method: :delete %>
+  <% end %>
   </section>
 <hr>
 <% end  %>
