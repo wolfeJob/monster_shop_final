@@ -31,7 +31,6 @@ redirect_to profile_path
 end
 end
 
-
 private
 def address_params
 params.permit(:nickname, :street, :city, :state, :zip, :user_id)
