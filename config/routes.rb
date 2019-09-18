@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   delete '/cart/:item_id', to: 'cart#remove_item'
 
   #new address button route
-  get 'users/:user_id/addresses/new', to: 'addresses#new'
-  post 'users/:user_id/addresses', to: 'addresses#create'
+  get '/users/:user_id/addresses/new', to: 'addresses#new'
+  post '/users/:user_id/addresses', to: 'addresses#create'
   get "/users/:user_id/addresses/:id/edit", to: 'addresses#edit'
   patch "/users/:user_id/addresses/:id", to: 'addresses#update'
 

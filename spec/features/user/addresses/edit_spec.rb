@@ -32,5 +32,6 @@ end
 
   click_button("update address")
   expect(current_path).to eq(profile_path)
+  # save_and_open_page
 end
 end

@@ -7,7 +7,8 @@ end
 
 def create
 @user = current_user
-@user = @user.addresses.new(address_params)
+@address = @user.addresses.create(address_params)
+pry
 redirect_to profile_path
 end
 
