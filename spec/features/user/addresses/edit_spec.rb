@@ -12,6 +12,7 @@ describe 'Addresses edit page' do
   where I can edit my address information" do
 
   visit profile_path
+  within "#address-#{@scott_addy.id}" do
   expect(page).to have_link("edit address")
   click_link ("edit address")
   expect(current_path).to eq("/users/:user_id/addresses/:id/edit")
@@ -30,6 +31,6 @@ describe 'Addresses edit page' do
 
   click_button("update address")
   expect(current_path).to eq(profile_path)
-
+end
 end
 end

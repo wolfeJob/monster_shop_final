@@ -4,15 +4,17 @@
 
 <h1> Your addresses </h1>
 <% @user.addresses.each do |address| %>
+<section id = "address-<%= address.id %>">
   <p>Type: <%= address.nickname%> </p>
   <p>Address: <%= address.street%></p>
   <p><%= address.city%></p>
   <p><%= address.state%></p>
   <p><%= address.zip%></p>
+  <%= link_to 'edit address',"/users/:user_id/addresses/:id/edit"  %>
+  </section>
 <hr>
 <% end  %>
 <%= link_to 'Edit', '/profile/edit' %>
-<%= link_to 'edit address',"/users/:user_id/addresses/:id/edit"  %>
 <%= link_to 'Change Password', '/profile/edit_password' %>
 <%= link_to 'Add Address', "/users/#{@user.id}/addresses/new" %>
 <%= link_to 'My Orders', '/profile/orders' %>
