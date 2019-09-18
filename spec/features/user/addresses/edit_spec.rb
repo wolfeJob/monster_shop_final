@@ -12,7 +12,6 @@ describe 'Addresses edit page' do
   where I can edit my address information" do
 
   visit profile_path
-  within "#address-#{@scott_addy.id}" do
   expect(page).to have_link("edit address")
   click_link ("edit address")
   expect(current_path).to eq("/users/:user_id/addresses/:id/edit")
@@ -29,28 +28,8 @@ describe 'Addresses edit page' do
   fill_in "State", with: state
   fill_in "Zip", with: zip
 
+  click_button("update address")
+  expect(current_path).to eq(profile_path)
 
-  end
-
-   fill_in "Type", with: type
-   fill_in "Street Address", with: street
-   fill_in "City", with: city
-   fill_in "State", with: state
-   fill_in "Zip", with: zip
-
-   click_on "Create Address"
-
-   new_address = Address.last
-
-   expect(current_path).to eq(profile_path)
-
- # within "#address-#{new_address.id}" do
-   # save_and_open_page
-   expect(page).to have_content(street)
-   expect(page).to have_content(city)
-   expect(page).to have_content(state)
-   expect(page).to have_content(zip)
-  # end
-  # save_and_open_page
 end
 end

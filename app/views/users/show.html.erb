@@ -12,6 +12,7 @@
 <hr>
 <% end  %>
 <%= link_to 'Edit', '/profile/edit' %>
+<%= link_to 'edit address',"/users/:user_id/addresses/:id/edit"  %>
 <%= link_to 'Change Password', '/profile/edit_password' %>
 <%= link_to 'Add Address', "/users/#{@user.id}/addresses/new" %>
 <%= link_to 'My Orders', '/profile/orders' %>
