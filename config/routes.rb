@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   post '/users/:user_id/addresses', to: 'addresses#create'
   get "/users/:user_id/addresses/:id/edit", to: 'addresses#edit'
   patch "/users/:user_id/addresses/:id", to: 'addresses#update'
+  delete "/users/:user_id/addresses/:id", to: 'addresses#destroy'
+
 
   get '/registration', to: 'users#new', as: :registration
   resources :users, only: [:create, :update]
