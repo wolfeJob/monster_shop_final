@@ -15,6 +15,7 @@ describe 'Addresses edit page' do
   within "#address-#{@scott_addy.id}" do
   expect(page).to have_link("edit address")
   click_link ("edit address")
+end
   expect(current_path).to eq("/users/:user_id/addresses/:id/edit")
   #new information to fill in test with
   type = "new type"
@@ -31,6 +32,5 @@ describe 'Addresses edit page' do
 
   click_button("update address")
   expect(current_path).to eq(profile_path)
-end
 end
 end
