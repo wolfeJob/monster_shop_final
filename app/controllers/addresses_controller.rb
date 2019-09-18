@@ -10,6 +10,10 @@ def create
 redirect_to profile_path
 end
 
+def edit
+
+end 
+
 
 
 private
