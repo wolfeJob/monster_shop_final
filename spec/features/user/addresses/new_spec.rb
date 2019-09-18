@@ -32,12 +32,13 @@ describe 'Creating a new address for a registered user' do
 
    expect(current_path).to eq(profile_path)
 
- within "#address-#{new_address.id}" do
-   save_and_open_page
+ # within "#address-#{new_address.id}" do
+   # save_and_open_page
    expect(page).to have_content(street)
    expect(page).to have_content(city)
    expect(page).to have_content(state)
    expect(page).to have_content(zip)
-  end
+  # end
+  # save_and_open_page
 end
 end
