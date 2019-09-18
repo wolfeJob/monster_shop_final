@@ -13,5 +13,4 @@ validates_presence_of :street,
 def orders_that_are_shipped_status
   self.orders.where(status: "shipped")
 end
-
-end 
+end
