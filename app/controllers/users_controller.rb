@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.addresses.create(address_params)
-      binding.pry
       session[:user_id] = @user.id
       flash[:notice] = "Welcome, #{@user.name}!"
       redirect_to profile_path
@@ -49,7 +48,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
+
   def address_params
     params.require(:user).require(:addresses_attributes)["0"].permit(:street, :city, :state, :zip)
   end
+
 end

@@ -17,9 +17,14 @@
     </section>
   <% end %>
   <section id='checkout'>
-    <% if current_user %>
-      <%= button_to 'Check Out', '/orders' %>
+    <% if current_user && !current_user.addresses.empty? && current_user.addresses.count >= 1 %>
+      <%= form_tag '/orders', method: :post do %>
+        <p>choose your shipping address</p>
+        <%= select_tag "address", options_from_collection_for_select(current_user.addresses, "id", "street") %>
+        <%= submit_tag "checkout" %>
+        <% end %>
     <% else %>
+      <p>In order to checkout please make an address <%= link_to "add a shipping address", "/users/#{current_user.id}/addresses/new"%></p>
       <p>You must <%= link_to 'register', registration_path %> or <%= link_to 'log in', login_path %> to checkout.</p>
     <% end %>
   </section>
