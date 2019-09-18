@@ -10,7 +10,7 @@
   <p><%= address.city%></p>
   <p><%= address.state%></p>
   <p><%= address.zip%></p>
-  <%= link_to 'edit address',"/users/:user_id/addresses/:id/edit"  %>
+  <%= link_to 'edit address',"/users/#{@user.id}/addresses/#{address.id}/edit"  %>
   </section>
 <hr>
 <% end  %>

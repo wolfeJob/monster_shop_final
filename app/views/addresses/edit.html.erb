@@ -1,5 +1,5 @@
 
-<%= form_tag "/users/:user_id/addresses", method: :patch do %>
+<%= form_tag "/users/#{@user.id}/addresses/#{@address.id}", method: :patch do %>
 
 <%= label_tag :nickname, "Type" %>
 <%= text_field_tag :nickname %>

@@ -1,7 +1,8 @@
 class AddressesController < ApplicationController
 
 def new
-
+@user = current_user
+@address = Address.new
 end
 
 def create
@@ -11,8 +12,16 @@ redirect_to profile_path
 end
 
 def edit
+@user = current_user
+@address = Address.find(params[:id])
+end
 
-end 
+def update
+@user = current_user
+@address = Address.find(params[:id])
+@address.update(address_params)
+redirect_to profile_path
+end
 
 
 
